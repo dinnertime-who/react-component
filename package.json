@@ -1,0 +1,60 @@
+{
+  "name": "@dinnertime/react-component",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Taehun Bak",
+    "email": "dinnertime.dev@gmail.com",
+    "url": "https://github.com/dinnertime-who"
+  },
+  "homepage": "https://github.com/dinnertime-who/react-component",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/dinnertime-who/react-component"
+  },
+  "keywords": [
+    "simple",
+    "frontend",
+    "typescript",
+    "utils",
+    "react"
+  ],
+  "type": "module",
+  "types": "build/legacy/index.d.ts",
+  "main": "build/legacy/index.cjs",
+  "module": "build/legacy/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./build/modern/index.d.ts",
+        "default": "./build/modern/index.js"
+      },
+      "require": {
+        "types": "./build/modern/index.d.cts",
+        "default": "./build/modern/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "tsup": "^8.2.1",
+    "typescript": "^5.5.4",
+    "vite": "^4.5.3",
+    "vite-plugin-dts": "^3.9.1",
+    "esbuild-plugin-file-path-extensions": "^2.1.2"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}

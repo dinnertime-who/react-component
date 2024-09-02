@@ -6,8 +6,13 @@ export type DefineComponentState = <S>(
 
 export type DefineComponentConstant = <C>(value: C) => C;
 
-export type DefineComponentTransaction = <F extends (...args: any[]) => any>(
+export type DefineComponentElementRef = <
+  E extends HTMLElement,
+>() => React.RefObject<E>;
+
+export type DefineComponentFunction = <F extends (...args: any[]) => any>(
   callback: F,
+  option?: { transaction: boolean },
 ) => {
   isProcessing: boolean;
   executor: (
@@ -44,11 +49,12 @@ export type DefineComponentOnUnmounted = <R>(
 ) => void;
 
 export type DefineComponentProps = {
-  isMounted: boolean;
   state: DefineComponentState;
   constant: DefineComponentConstant;
   defineEffect: DefineComponentEffect;
   defineCompute: DefineComponentCompute;
+  defineFunction: DefineComponentFunction;
   onMounted: DefineComponentOnMounted;
   onUnmounted: DefineComponentOnUnmounted;
+  elementRef: DefineComponentElementRef;
 };
